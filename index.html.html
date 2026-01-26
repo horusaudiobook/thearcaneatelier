@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessàndrho Peréira | Visual Artist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #121212;
+            --accent: #8B4513;
+            --accent-light: #A0522D;
+            --text: #e0d6cc;
+            --text-secondary: #b0a699;
+            --border: #2a241f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 5%;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-symbol {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--text);
+        }
+        
+        .currency {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)), url('https://i.ibb.co/LhYjyQPb/pexels-valeriiamiller-3547795.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            letter-spacing: 1.5px;
+            border: 1px solid var(--accent-light);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent-light);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Artworks Section */
+        .artworks {
+            background-color: var(--secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .artworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .artwork-card {
+            background-color: var(--primary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .artwork-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-info {
+            padding: 1.8rem;
+        }
+        
+        .artwork-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+        
+        .artwork-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .artwork-details {
+            background-color: rgba(138, 69, 19, 0.1);
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .detail-item {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            min-width: 100px;
+            color: var(--accent-light);
+        }
+        
+        .artwork-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-light);
+        }
+        
+        .buy-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .buy-button:hover {
+            background-color: var(--accent-light);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-light);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 0.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .artworks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-symbol">🜂</span>
+                ALESSÀNDRHO PERÉIRA
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#artworks">Artworks</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><span class="currency">USD $</span></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ART THAT CARRIES SILENCE AND INTENSITY</h1>
+            <p>Exploring symbolism, transformation, and the traces of matter through acrylic painting. Unique works that dialogue with nature, ritual, and the esoteric.</p>
+            <a href="#artworks" class="cta-button">EXPLORE ARTWORKS</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">ABOUT THE ARTIST</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://i.ibb.co/mVkk8bx9/1768688246603.jpg">
+            </div>
+            <div class="about-text">
+                <h3>Alessàndrho Peréira</h3>
+                <p>Brazilian visual artist working primarily with acrylic painting. My work explores symbolism, transformation, and the traces of matter—themes deeply connected to nature, ritualistic imagery, and esoteric traditions.</p>
+                <p>Skulls, organic forms, and cyclical structures frequently appear as visual metaphors of impermanence, death, and rebirth.</p>
+                <p>Each piece is created intuitively, with attention to texture, contrast, and atmosphere. I value the physical presence of the artwork and the expressive quality of each brushstroke, accepting imperfections as part of the creative process.</p>
+                <p>I believe that art should carry meaning, silence, and intensity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artworks Section -->
+    <section class="section artworks" id="artworks">
+        <h2 class="section-title">AVAILABLE ARTWORKS</h2>
+        <div class="artworks-grid">
+            <!-- Artwork 1 -->
+            <div class="artwork-card">
+                <div class="artwork-image">
+                    <img src="https://i.ibb.co/c0Djqdm/Treino-Bumbum-Capa-para-Youtube-Exerc-cio-para-fazer-em-casa.jpg" alt="Caput Mortuum">
+                </div>
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Caput Mortuum</h3>
+                    <p class="artwork-description">Original acrylic work exploring the symbolism of matter after dissolution—what remains when the essential has been extracted.</p>
+                    
+                    <div class="artwork-details">
+                        <p>The animal skull, suspended above the spiraling horn, evokes cycles of death, transformation, and return. The dark palette, marked by earthy tones, ochers, and deep shadows, reinforces the ritualistic and timeless atmosphere of the work, dialoguing with concepts from alchemy, occultism, and primordial nature.</p>
+                        <p>Each brushstroke carries intention and gesture, making this piece unique and irreproducible. Work signed on front and back, accompanied by complete artist identification.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Artist:</span>
+                        <span>Alessàndrho Peréira</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Technique:</span>
+                        <span>Acrylic</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Support:</span>
+                        <span>Art paper</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dimensions:</span>
+                        <span>29.7 x 21 cm</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Year:</span>
+                        <span>2026</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span>Original work – unique piece (1/1)</span>
+                    </div>
+                    
+                    <div class="artwork-price">
+                        <div class="price">$ 140</div>
+                        <a href="https://horusaudiobook.gumroad.com/l/vglwh" target="_blank" class="buy-button">BUY ON GUMROAD</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Artwork 2 -->
+            <div class="artwork-card">
+                <div class="artwork-image">
+                    <img src="https://i.ibb.co/Q3DGyXJg/Treino-Bumbum-Capa-para-Youtube-Exerc-cio-para-fazer-em-casa-1.png" alt="Corpus Transmutatio">
+                </div>
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Spirit of the Waters and the Jungle</h3>
+                    <p class="artwork-description">Between the river and the forest, Manaus emerges as a symbolic territory where nature, memory, and ancestral strength coexist. The jaguar, the river dolphin, and iconic architecture reveal the pulse of the Amazon — a place of resistance, transformation, and living identity.</p>
+                    
+                    <div class="artwork-details">
+                        <p>This work establishes a symbolic dialogue between water, forest, and the cultural memory of the Amazon. The composition brings together iconic elements — the jaguar, the pink river dolphin, the river, and the Amazon Theatre, which stands as the central figure of the artwork — all unified by a reference to the Meeting of the Waters of the Negro and Solimões rivers, a natural phenomenon that symbolizes coexistence, contrast, and continuity.</p>
+                        <p>The jaguar appears as an ancestral force and guardian of the forest, representing power, resistance, and spirituality. The pink river dolphin emerges from the waters as a symbol of transformation, mystery, and the mythical imagination of the Amazon. The Meeting of the Waters functions as a visual and symbolic metaphor for duality — light and dark, movement and permanence — reinforcing the idea of distinct forces that do not merge, yet flow side by side. At the center of the composition, the Amazon Theatre asserts itself as a historical and cultural landmark, embodying collective memory and human presence within the heart of the rainforest.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Artist:</span>
+                        <span>Alessàndrho Peréira</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Technique:</span>
+                        <span>Acrylic</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Support:</span>
+                        <span>canvas</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dimensions:</span>
+                        <span>60 x 80 cm</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Year:</span>
+                        <span>2025</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span>Original work – unique piece (1/1)</span>
+                    </div>
+                    
+                    <div class="artwork-price">
+                        <div class="price">$ 567,12</div>
+                        <a href="https://gumroad.com/" target="_blank" class="buy-button">BUY ON GUMROAD</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Artwork 3 -->
+            <div class="artwork-card">
+                <div class="artwork-image">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=745&q=80" alt="Primordial Traces">
+                </div>
+                <div class="artwork-info">
+                    <h3 class="artwork-title">Primordial Traces</h3>
+                    <p class="artwork-description">Study on the traces of matter and the memory of forms in the process of dissolution and reconstruction.</p>
+                    
+                    <div class="artwork-details">
+                        <p>This work addresses the concept of "trace" as material memory, exploring layers of paint that suggest erosion, fossilization, and the passage of time. The composition centers a bone-like element that seems to simultaneously emerge and dissolve into the textured background.</p>
+                        <p>The technique combines expressive brushstrokes with direct spatula application, creating a rich and irregular surface that invites tactile contemplation. The work is signed on front and back and includes a certificate of authenticity.</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <span class="detail-label">Artist:</span>
+                        <span>Alessàndrho Peréira</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Technique:</span>
+                        <span>Acrylic and pigments</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Support:</span>
+                        <span>Wood panel</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dimensions:</span>
+                        <span>40 x 60 cm</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Year:</span>
+                        <span>2024</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span>Original work – unique piece (1/1)</span>
+                    </div>
+                    
+                    <div class="artwork-price">
+                        <div class="price">$ 950</div>
+                        <a href="https://gumroad.com/" target="_blank" class="buy-button">BUY ON GUMROAD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">🜂 ALESSÀNDRHO PERÉIRA</div>
+            <p class="footer-text">All artworks are original, unique pieces, hand-signed and carefully prepared for collectors. No prints or reproductions—each work is singular.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2026 Alessàndrho Peréira. All rights reserved.</p>
+                <p>📦 Protected shipping and carefully packaged for collectors.</p>
+                <p style="margin-top: 15px; font-size: 0.8rem;">Thank you for supporting independent art.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Currency display update (example functionality)
+        document.querySelector('.currency').addEventListener('click', function() {
+            const currency = this.textContent;
+            if(currency === 'USD $') {
+                this.textContent = 'BRL R$';
+                // Here you would update prices to BRL
+            } else {
+                this.textContent = 'USD $';
+                // Here you would update prices to USD
+            }
+        });
+    </script>
+</body>
+</html>
